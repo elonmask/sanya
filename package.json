@@ -1,0 +1,15 @@
+{
+  "name": "bot",
+  "version": "0.1.0",
+  "description": "Sanya Sosat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+, "build": "npm install",
+"start": "node index.js"  },
+  "author": "Sergei Voronov",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0",
+    "threads": "^0.12.0"},
+  "license": "ISC"
+}
