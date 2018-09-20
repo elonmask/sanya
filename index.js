@@ -33,6 +33,21 @@ bot.onText(/\/sanya_choir/, (msg, match) => {
   bot.sendVoice(id, './choir.mp3', {});
 });
 
+bot.onText(/\/vika/, (msg, match) => {
+  var id = msg.chat.id;
+  bot.sendMessage(id, 'Вика топ❤');
+});
+
+bot.onText(/\/katya/, (msg, match) => {
+  var id = msg.chat.id;
+  bot.sendMessage(id, 'Катя топ💦');
+});
+
+bot.onText(/\/nastya/, (msg, match) => {
+  var id = msg.chat.id;
+  bot.sendMessage(id, 'Настя топ😍');
+});
+
 bot.on('message', function(msg) {
   var id = msg.chat.id;
   if (msg.text == 'Саня') {
@@ -50,23 +65,30 @@ bot.on('message', function(msg) {
 bot.on('message', function(msg) {
   var id = msg.chat.id;
   if (msg.text == 'Кто батя?') {
-    bot.sendMessage(id, 'Батя - @voronovserg, А Сане передайте что б сосал)0))');
+    bot.sendMessage(id, 'Батя - @voronovserg, А Сане передайте чтоб сосал)0))');
   }
 });
 
 bot.onText(/\/radio_on/, (msg, match) => {
 
-  bot.sendAudio(msg.chat.id, './' + getRandomInt(21) + '_.mp3');
+  var counter = 0;
+  var collector = [];
+
+  bot.sendAudio(msg.chat.id, './' + getRandomInt(24) + '_.mp3');
   bot.sendMessage(msg.chat.id, '#радиоОппозиции');
 
   setInterval(function() {
 
-    var r = getRandomInt(21);
+    var r = getRandomInt(24);
     console.log(r + ' ' + '\n');
     if (r == 1) {
+
+      if (!collector[1]) {
       var id = msg.chat.id;
       bot.sendAudio(id, './' + r + '_.mp3');
       bot.sendMessage(id, '#радиоОппозиции');
+      collector[1] = true;
+      }
     } else if (r == 2) {
       var id = msg.chat.id;
       bot.sendAudio(id, './' + r + '_.mp3');
@@ -143,6 +165,18 @@ bot.onText(/\/radio_on/, (msg, match) => {
       var id = msg.chat.id;
       bot.sendAudio(id, './' + r + '_.mp3');
       bot.sendMessage(id, '#радиоОппозиции');
+    } else if (r == 21) {
+      var id = msg.chat.id;
+      bot.sendAudio(id, './' + r + '_.mp3');
+      bot.sendMessage(id, '#радиоОппозиции');
+    } else if (r == 22) {
+      var id = msg.chat.id;
+      bot.sendAudio(id, './' + r + '_.mp3');
+      bot.sendMessage(id, '#радиоОппозиции');
+    } else if (r == 23) {
+      var id = msg.chat.id;
+      bot.sendAudio(id, './' + r + '_.mp3');
+      bot.sendMessage(id, '#радиоОппозиции');
     }
-  }, 3600000);
+  }, 1800000);
 });
