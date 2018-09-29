@@ -4,6 +4,8 @@ const spawn = require('threads').spawn;
 const token = '635249547:AAGJlU2A90kI0PtCq277DIQ85lT2FveOukg';
 const bot = new TelegramBot(token, {polling: true});
 
+var radio_on = false;
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
@@ -40,12 +42,17 @@ bot.onText(/\/vika/, (msg, match) => {
 
 bot.onText(/\/katya/, (msg, match) => {
   var id = msg.chat.id;
-  bot.sendMessage(id, 'Катя топ💦');
+  bot.sendMessage(id, 'Катя мега топ❤💦');
 });
 
 bot.onText(/\/nastya/, (msg, match) => {
   var id = msg.chat.id;
   bot.sendMessage(id, 'Настя топ😍');
+});
+
+bot.onText(/\/ivanka/, (msg, match) => {
+  var id = msg.chat.id;
+  bot.sendMessage(id, 'Иванка топ😍😍');
 });
 
 bot.on('message', function(msg) {
@@ -69,114 +76,112 @@ bot.on('message', function(msg) {
   }
 });
 
-bot.onText(/\/radio_on/, (msg, match) => {
+bot.on('new_chat_members', function(msg) {
+  var id = msg.chat.id;
+  bot.sendMessage(id, 'Превб покеж пезду');
 
-  var counter = 0;
-  var collector = [];
+});
 
-  bot.sendAudio(msg.chat.id, './' + getRandomInt(24) + '_.mp3');
-  bot.sendMessage(msg.chat.id, '#радиоОппозиции');
+bot.on('left_chat_member', function(msg) {
+  var id = msg.chat.id;
+  bot.sendMessage(id, msg.from.first_name + ', иди нахуй)');
+});
 
-  setInterval(function() {
+bot.onText(/\/radio/, (msg, match) => {
 
-    var r = getRandomInt(24);
-    console.log(r + ' ' + '\n');
-    if (r == 1) {
-
-      if (!collector[1]) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-      collector[1] = true;
-      }
-    } else if (r == 2) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 3) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 4) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 5) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 6) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 7) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 8) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 9) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 10) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 11) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 12) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 13) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 14) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 15) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 16) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 17) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 18) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 19) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 20) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 21) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 22) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    } else if (r == 23) {
-      var id = msg.chat.id;
-      bot.sendAudio(id, './' + r + '_.mp3');
-      bot.sendMessage(id, '#радиоОппозиции');
-    }
-  }, 1800000);
+  var r = getRandomInt(24);
+  console.log(r + ' ' + '\n');
+  if (r == 1) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 2) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 3) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 4) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 5) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 6) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 7) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 8) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 9) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 10) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 11) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 12) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 13) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 14) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 15) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 16) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 17) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 18) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 19) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 20) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 21) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 22) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  } else if (r == 23) {
+    var id = msg.chat.id;
+    bot.sendAudio(id, './' + r + '_.mp3');
+    bot.sendMessage(id, '#радиоОппозиции');
+  }
 });
